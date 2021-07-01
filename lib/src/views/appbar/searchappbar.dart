@@ -4,6 +4,9 @@ import 'package:giphy_get/src/client/models/type.dart';
 import 'package:giphy_get/src/providers/app_bar_provider.dart';
 import 'package:giphy_get/src/providers/sheet_provider.dart';
 import 'package:giphy_get/src/providers/tab_provider.dart';
+import 'dart:async';
+
+// ignore: import_of_legacy_library_into_null_safe
 import 'package:provider/provider.dart';
 
 class SearchAppBar extends StatefulWidget {
@@ -39,6 +42,9 @@ class _SearchAppBarState extends State<SearchAppBar> {
   //Is DarkMode
   late bool _isDarkMode;
 
+  //Debounce for the search text box
+  Timer? _debounce;
+
   @override
   void initState() {
     // Focus
@@ -46,9 +52,10 @@ class _SearchAppBarState extends State<SearchAppBar> {
 
     // Listener TextField
     _textEditingController.addListener(() {
-      if (_textEditingController.text.isNotEmpty) {
+      if (_debounce?.isActive ?? false) _debounce!.cancel();
+      _debounce = Timer(const Duration(milliseconds: 500), () {
         _appBarProvider.queryText = _textEditingController.text;
-      }
+      });
     });
 
     super.initState();
