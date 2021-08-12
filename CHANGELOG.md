@@ -1,3 +1,23 @@
+## [2.0.2] - 2021-06-10
+* Fix Null Safety Thanks to [TramPamPam](https://github.com/TramPamPam)
+
+## [2.0.1] - 2021-05-19
+* Fix Null Safety
+
+## [2.0.0] - 2021-05-01
+* Upgrade Dependencies
+* Fix Null Safety string in Giph class
+
+## [2.0.0-nullsafety.3] - 2021-04-11
+* Upgrade Dependencies
+* Fix Null Safety string
+
+## [2.0.0-nullsafety.2] - 2021-03-24
+* Upgrade Dependencies
+
+## [2.0.0-nullsafety.1] - 2021-03-11
+* Null Safety Migration
+
 ## [1.1.1] - 2021-01-31
 * Fix empty grid
 
